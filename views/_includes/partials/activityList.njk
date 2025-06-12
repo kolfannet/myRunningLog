@@ -1,5 +1,9 @@
-<table class="activities">
-    <tr class="header">
+<input type="text" id="year" onkeyup="filterYear()" placeholder="Year">
+
+<div id="output"></div>
+
+<table id="activities" class="table-auto w-10/12 m-auto text-sm border-collapse my-10">
+    <tr class="header-row">
         <th>Date</th>
         <th>Time</th>
         <th>Distance</th>
@@ -9,8 +13,10 @@
         <th>Calories</th>
         <th>Ascent</th>
         <th>Location</th>
+        <th class="hidden">Year</th>
+        <th class="hidden">Month</th>
     </tr>
-    <tr class="unit-row">
+    <tr class="unit-row italic bg-gray-50">
         <td>dd/mm/yy</td>
         <td>hh:mm:ss</td>
         <td>km</td>
@@ -19,17 +25,23 @@
         <td>spm</td>
         <td>kCal</td>
         <td>m</td>
-        <td>place</td>
+        <td>route</td>
+        <td class="hidden">year</td>
+        <td class="hidden">month</td>
     </tr>
-    <tr>
-        <td>03/03/25</td>
-        <td>1:15:04</td>
-        <td>11.55</td>
-        <td>6:30</td>
-        <td>172</td>
-        <td>166</td>
-        <td>836</td>
-        <td>134</td>
-        <td>City Loop</td>
+    {% for item in running %}
+    <tr class="data-row">
+        <td>{{ item.Date }}</td>
+        <td>{{ item.Time }}</td>
+        <td>{{ item.Distance }}</td>
+        <td>{{ item.Pace }}</td>
+        <td>{{ item.AvgHR }}</td>
+        <td>{{ item.Cadence }}</td>
+        <td>{{ item.Calories }}</td>
+        <td>{{ item.Ascent }}</td>
+        <td>{{ item.Location }}</td>
+        <td class="hidden">{{ item.Date | postDateIso("yyyy") }}</td>
+        <td class="hidden">{{ item.Date | postDateIso("LLL")}}</td>
     </tr>
+    {% endfor %}
 </table>

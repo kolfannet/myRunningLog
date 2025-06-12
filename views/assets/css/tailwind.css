@@ -1,35 +1,14 @@
 @import "tailwindcss";
 
 
-.activities {
-  @apply table-auto w-10/12 m-auto text-sm border-collapse my-10;
-}
-
-.header th {
+.header-row th {
     @apply border border-gray-300 px-1 py-1 text-center bg-gray-100;
-}
-
-.unit-row {
-    @apply italic bg-gray-50;
 }
 
 .unit-row td {
     @apply border border-gray-300 px-1 py-1 text-center;
 }
 
-td {
+.data-row td {
     @apply border border-gray-300 px-1 py-1 text-center;
-}
-
-
-a {
-  @apply text-sky-500 dark:text-sky-500;
-}
-
-h1 {
-    @apply text-xl font-bold pb-2;
-}
-
-h3 {
-    @apply text-lg font-bold py-2 text-gray-600 dark:text-gray-400;
 }
